@@ -1,0 +1,38 @@
+version: '3'
+services:
+  flask-api:
+    container_name: flask-api
+    image: python:3.9
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend/src/:/app/
+    ports:
+      - published: 5000
+        target: 5000
+    command: python3 main.py
+    depends_on:
+      - mongodb
+    links:
+      - "mongodb"
+
+  mongodb:
+    image: mongo
+    hostname: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - data:/data/
+      - ./database/initdb.js:/docker-entrypoint-initdb.d/init-db.js:ro
+    environment:
+      MONGO_INITDB_DATABASE: yourMeal
+      # MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      # MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+
+volumes:
+  data: {}
+
+networks:
+  default:
+    name: flask-mongodb-network
