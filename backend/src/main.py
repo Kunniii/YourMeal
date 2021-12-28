@@ -10,7 +10,7 @@ def get_db():
 
 @app.route('/')
 def index():
-    return "<h1>Hello!</h1>"
+    return jsonify({"message": "Not found!"}),404
 
 @app.route('/dishes', methods=['GET'])
 def dishes_route():
