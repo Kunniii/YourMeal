@@ -6,14 +6,15 @@ db.createCollection("Photos")
 db.createCollection("Ingredients")
 db.createCollection("Recipes")
 
-// add some sample data
+// add some sample data Dishes
 db.Dishes.insertMany([
     {
-        name: "trung-chien",
-        ingredients: [1, 2, 3, 4, 5, 6, 7]
+        name: "trung-chien"
     },
     {
-        name: "trung-op-la",
-        ingredients: [1, 2, 3, 4, 5, 6]
+        name: "trung-op-la"
     }
 ])
+
+// add some sample data 
+

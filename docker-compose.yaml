@@ -1,8 +1,26 @@
 version: '3'
 services:
+
+  flask-client:
+    container_name: flask-client
+    image: python:3.9
+    restart: always
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend/src/:/app/
+    ports:
+      - published: 80
+        target: 8080
+    command: python3 main.py
+    depends_on:
+      - flask-api
+
   flask-api:
     container_name: flask-api
     image: python:3.9
+    restart: always
     build:
       context: ./backend/
       dockerfile: Dockerfile
@@ -27,8 +45,6 @@ services:
       - ./database/initdb.js:/docker-entrypoint-initdb.d/init-db.js:ro
     environment:
       MONGO_INITDB_DATABASE: yourMeal
-      # MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
-      # MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
 
 volumes:
   data: {}
