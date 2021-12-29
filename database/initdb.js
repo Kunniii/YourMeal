@@ -9,7 +9,7 @@ db.createCollection("Ingredients")
 db.Dishes.insertMany(
     [
         {
-            "name": "Chorizo & mozzarella gnocchi bake",
+            "name": "Chorizo and mozzarella gnocchi bake",
             "cal": 318,
             "ingredients": ["oil", "onion", "garlic", "chorizo", "tomatoes", "sugar", "gnocchi", "mozzarella", "basil"],
             "cook": "Ingredients\n1 tbsp olive oil\n1 onion , finely chopped\n2 garlic cloves , crushed\n120g chorizo , diced\n2 x 400g cans chopped tomatoes\n1 tsp caster sugar\n600g fresh gnocchi\n125g mozzarella ball, cut into chunks\nsmall bunch of basil , torn\ngreen salad , to serve\n\nMethod\nSTEP 1\nHeat the oil in a medium pan over a medium heat. Fry the onion and garlic for 8-10 mins until soft. Add the chorizo and fry for 5 mins more. Tip in the tomatoes and sugar, and season. Bring to a simmer, then add the gnocchi and cook for 8 mins, stirring often, until soft. Heat the grill to high.\n\nSTEP 2\nStir � of the mozzarella and most of the basil through the gnocchi. Divide the mixture between six ovenproof ramekins, or put in one baking dish. Top with the remaining mozzarella, then grill for 3 mins, or until the cheese is melted and golden. Season, scatter over the remaining basil and serve with green salad.",
@@ -23,7 +23,7 @@ db.Dishes.insertMany(
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/butter-chicken-cf6f9e2.jpg"
         },
         {
-            "name": "Easy classic lasagn\n",
+            "name": "Easy classic lasagn",
             "cal": 844,
             "ingredients": ["oil", "bacon", "onion", "celery", "carrot", "garlic", "beef", "tomatoes", "honey", "egg lasagne", "french cream", "mozzarella", "parmesan", "basil"],
             "cook": "Ingredients\n1 tbsp olive oil\n2 rashers smoked streaky bacon\n1 onion , finely chopped\n1 celery stick, finely chopped\n1 medium carrot , grated\n2 garlic cloves , finely chopped\n500g beef mince\n1 tbsp tomato pur�e\n2 x 400g cans chopped tomatoes\n1 tbsp clear honey\n500g pack fresh egg lasagne sheets\n400ml cr�me fra�che\n125g ball mozzarella , roughly torn\n50g freshly grated parmesan\nlarge handful basil leaves , torn (optional)\n\nMethod\nSTEP 1\nHeat the oil in a large saucepan. Use kitchen scissors to snip the bacon into small pieces, or use a sharp knife to chop it on a chopping board. Add the bacon to the pan and cook for just a few mins until starting to turn golden. Add the onion, celery and carrot, and cook over a medium heat for 5 mins, stirring occasionally, until softened.\n\nSTEP 2\nAdd the garlic and cook for 1 min, then tip in the mince and cook, stirring and breaking it up with a wooden spoon, for about 6 mins until browned all over.\n\nSTEP 3\nStir in the tomato pur�e and cook for 1 min, mixing in well with the beef and vegetables. Tip in the chopped tomatoes. Fill each can half full with water to rinse out any tomatoes left in the can, and add to the pan. Add the honey and season to taste. Simmer for 20 mins.\n\nSTEP 4\nHeat oven to 200C/180C fan/gas 6. To assemble the lasagne, ladle a little of the ragu sauce into the bottom of the roasting tin or casserole dish, spreading the sauce all over the base. Place 2 sheets of lasagne on top of the sauce overlapping to make it fit, then repeat with more sauce and another layer of pasta. Repeat with a further 2 layers of sauce and pasta, finishing with a layer of pasta.\n\nSTEP 5\nPut the cr�me fra�che in a bowl and mix with 2 tbsp water to loosen it and make a smooth pourable sauce. Pour this over the top of the pasta, then top with the mozzarella. Sprinkle Parmesan over the top and bake for 25�30 mins until golden and bubbling. Serve scattered with basil, if you like. ",
@@ -37,7 +37,7 @@ db.Dishes.insertMany(
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/easy-teriyaki-c845724.jpg"
         },
         {
-            "name": "Thai fried prawn & pineapple rice",
+            "name": "Thai fried prawn and pineapple rice",
             "cal": 311,
             "ingredients": ["oil", "onion", "green pepper", "pineapple", "Thai green curry paste", "soy sauce", "rice", "egg", "peas", "bamboo shoots", "prawns", "limes"],
             "cook": "Ingredients\n2 tsp sunflower oil\nbunch spring onions , greens and whites separated, both sliced\n1 green pepper , deseeded and chopped into small chunks\n140g pineapple , chopped into bite-sized chunks\n3 tbsp Thai green curry paste\n4 tsp light soy sauce , plus extra to serve\n300g cooked basmati rice (brown, white or a mix - about 140g uncooked rice)\n2 large eggs , beaten\n140g frozen peas\n225g can bamboo shoots , drained\n250g frozen prawns , cooked or raw\n2-3 limes , 1 juiced, the rest cut into wedges to serve\nhandful coriander leaves (optional)\n\nMethod\nSTEP 1\nHeat the oil in a wok or non-stick frying pan and fry the spring onion whites for 2 mins until softened. Stir in the pepper for 1 min, followed by the pineapple for 1 min more, then stir in the green curry paste and soy sauce.\n\nSTEP 2\nAdd the rice, stir-frying until piping hot, then push the rice to one side of the pan and scramble the eggs on the other side. Stir the peas, bamboo shoots and prawns into the rice and eggs, then heat through for 2 mins until the prawns are hot and the peas tender. Finally, stir in the spring onion greens, lime juice and coriander, if using. Spoon into bowls and serve with extra lime wedges and soy sauce.",
@@ -51,14 +51,14 @@ db.Dishes.insertMany(
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chocolate-fudge-cake-91de17a.jpg?quality=90&webp=true&resize=220,200"
         },
         {
-            "name": "One-pan spaghetti with nduja, fennel & olives",
+            "name": "One-pan spaghetti with nduja, fennel and olives",
             "cal": 608,
             "ingredients": ["spaghetti", "garlic", "fennel", "sobrasada paste", "nduja", "tomatoes", "olives", "oil", "red wine vinegar", "pecorino", "basil"],
             "cook": "Ingredients\n400g spaghetti\n3 garlic cloves , very thinly sliced\n� fennel , halved and very thinly sliced\n75g nduja or sobrasada paste\n200g tomatoes (the best you can get), chopped into chunks\n75g black olives , pitted and sliced\n2 tsp tomato pur�e\n3 tbsp olive oil , plus a drizzle\n2 tsp red wine vinegar\n40g pecorino , plus extra to serve\nhandful basil , torn\n\nMethod\nSTEP 1\nBoil the kettle. Put all the ingredients except the pecorino and basil in a wide saucepan or deep frying pan and season well. Pour over 800ml kettle-hot water and bring to a simmer, using your tongs to ease the spaghetti under the liquid as it starts to soften.\n\nSTEP 2\nSimmer, uncovered, for 10-12 mins, tossing the spaghetti through the liquid every so often until it is cooked and the sauce is reduced and clinging to it. Add a splash more hot water if the sauce is too thick or does not cover the pasta while it cooks. Turn up the heat for the final few mins to drive off the excess liquid, leaving you with a rich sauce. Stir through the pecorino and basil, and serve with an extra drizzle of oil and pecorino on the side.",
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/one-pan-spaghetti-with-nduja-fennel-olives-2308fb3.jpg"
         },
         {
-            "name": "\nEasy pancakes",
+            "name": "Easy pancakes",
             "cal": 61,
             "ingredients": ["flour", "eggs", "milk", "oil", "lemon", "caster sugar"],
             "cook": "Ingredients\n100g plain flour\n2 large eggs\n300ml milk\n1 tbsp sunflower or vegetable oil, plus a little extra for frying\nlemon wedges to serve (optional)\ncaster sugar to serve (optional)\n\nMethod\nSTEP 1\nPut 100g plain flour, 2 large eggs, 300ml milk, 1 tbsp sunflower or vegetable oil and a pinch of salt into a bowl or large jug, then whisk to a smooth batter.\n\nSTEP 2\nSet aside for 30 mins to rest if you have time, or start cooking straight away.\n\nSTEP 3\nSet a medium frying pan or cr�pe pan over a medium heat and carefully wipe it with some oiled kitchen paper.\n\nSTEP 4\nWhen hot, cook your pancakes for 1 min on each side until golden, keeping them warm in a low oven as you go.\n\nSTEP 5\nServe with lemon wedges and caster sugar, or your favourite filling. Once cold, you can layer the pancakes between baking parchment, then wrap in cling film and freeze for up to 2 months.",
@@ -72,21 +72,21 @@ db.Dishes.insertMany(
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chicken-fajitas-2-d7172f8.jpg"
         },
         {
-            "name": "\nEasy carrot cake",
+            "name": "Easy carrot cake",
             "cal": 680,
             "ingredients": ["oil", "natural yogurt", "egg", "vanilla extract", "orange", "flour", "Muscovado", "cinnamon", "nutmeg", "carrots", "sultanas", "walnuts", "salted butter", "sugar", "cheese"],
             "cook": "Ingredients\n230ml vegetable oil, plus extra for the tin\n100g natural yogurt\n4 large eggs\n1� tsp vanilla extract\n� orange, zested\n265g self-raising flour\n335g light muscovado sugar\n2� tsp ground cinnamon\n� fresh nutmeg, finely grated\n265g carrots (about 3), grated\n100g sultanas or raisins\n100g walnuts or pecans, roughly chopped (optional)\nFor the icing\n100g slightly salted butter, softened\n300g icing sugar\n100g soft cheese\n\nMethod\nSTEP 1\nHeat the oven to 180C/160C fan/gas 4. Oil and line the base and sides of two 20cm cake tins with baking parchment. Whisk the oil, yogurt, eggs, vanilla and zest in a jug. Mix the flour, sugar, cinnamon and nutmeg with a good pinch of salt in a bowl. Squeeze any lumps of sugar through your fingers, shaking the bowl a few times to bring the lumps to the surface.\n\nSTEP 2\nAdd the wet ingredients to the dry, along with the carrots, raisins and half the nuts, if using. Mix well to combine, then divide between the tins.\n\nSTEP 3\nBake for 25-30 mins or until a skewer inserted into the centre of the cake comes out clean. If any wet mixture clings to the skewer, return to the oven for 5 mins, then check again. Leave to cool in the tins.\n\nSTEP 4\nTo make the icing, beat the butter and sugar together until smooth. Add half the soft cheese and beat again, then add the rest (adding it bit by bit prevents the icing from splitting). Remove the cakes from the tins and sandwich together with half the icing. Top with the remaining icing and scatter with the remaining walnuts. Will keep in the fridge for up to five days. Best eaten at room temperature.",
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/carrot-cake-f1b3d0c.jpg"
         },
         {
-            "name": "\nEasy chicken curry",
+            "name": "Easy chicken curry",
             "cal": 354,
             "ingredients": ["oil", "onion", "garlic", "ginger", "chicken", "spice paste ", "tomatoes", "Greek yogurt", "coriander", "almonds", "basmati rice"],
             "cook": "Ingredients\n2 tbsp sunflower oil\n1 onion, thinly sliced\n2 garlic cloves, crushed\nthumb-sized piece of ginger, grated\n6 chicken thighs, boneless and skinless\n3 tbsp medium spice paste (tikka works well)\n400g can chopped tomatoes\n100g Greek yogurt\n1 small bunch of coriander, leaves chopped\n50g ground almonds\nnaan breads or cooked basmati rice, to serve\n\nMethod\nSTEP 1\nHeat the oil in a flameproof casserole dish or large frying pan over a medium heat. Add the onion and a generous pinch of salt and fry for 8-10 mins, or until the onion has turned golden brown and sticky. Add the garlic and ginger, cooking for a further minute.\n\nSTEP 2\nChop the chicken into chunky 3cm pieces, add to the pan and fry for 5 mins before stirring through the spice paste and tomatoes, along with 250ml water. Bring to the boil, lower to a simmer and cook on a gentle heat uncovered for 25-30 mins or until rich and slightly reduced. Stir though the yogurt, coriander and ground almonds, season and serve with warm naan or fluffy basmati rice.",
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/easy-chicken-curry-aa22a0b.jpg"
         },
         {
-            "name": "\nEasy meatballs",
+            "name": "Easy meatballs",
             "cal": 375,
             "ingredients": ["pork sausage", "onion", "carrot", " oregano", "beef", "parmesan", "breadcrumb", "egg", "oil", "celery", "courgette", "garlic", "red pepper", "tomato pur�e", "caster sugar"],
             "cook": "Ingredients\n300g good-quality pork sausage (about 4 large or 8 chipolatas)\n1 small onion\n1 carrot\n1 tbsp dried oregano\n500g lean beef mince\n50g parmesan , finely grated, plus extra to serve\n75g dried breadcrumb\n1 medium egg\n1 tbsp olive oil\nFor the tomato sauce\n1 carrot (finely grated)\n2 sticks of celery (grated)\n1 courgette (coarsely grated)\n3 garlic cloves (finely grated)\n2 red peppers\n1 tbsp olive oil\n1 tbsp tomato pur�e\npinch golden caster sugar\nsplash red wine vinegar\n3 x 400g tins chopped tomatoes\ncooked spaghetti , to serve\nhandful basil leaves , snipped\n\nMethod\nSTEP 1\nKIDS the writing in bold is for you. GROWN-UPS the rest is for you. Squeeze some sausages. Get your child to squeeze all the sausagemeat out of the skins into a large bowl. They can hold the sausages or do it by squashing them on a board.\n\nSTEP 2\nGet grating. Get your child to coarsely grate the onion and finely grate the carrot. If the onion starts to hurt their eyes, get them to wear goggles, which is good fun. Grating can take a bit of strength, so you may need to help. Tip these vegetables in with the sausages. While you have the grater out, grate the Parmesan, other vegetables and garlic for the sauce, and set aside.\n\nSTEP 3\nMake a marvellous mix. Next, get your child to add all the other meatball ingredients one by one, except the olive oil, into the bowl and season with black pepper.\n\nSTEP 4\nSquish everything together. Get the child to squish everything together through their hands until completely mixed. Keep an eye on younger children to make sure that they don�t taste any of the raw mix.\n\nSTEP 5\nRoll meatballs. Children as young as three can now roll the meatball mix into walnut-sized balls, then place them on a board or tray. This mix should make 40 balls � counting these is great way to help teach older children basic division. Cover the meatballs with cling film and have a little tidy up.\n\nSTEP 6\nPrepare the red peppers. Firstly, peel the peppers with a vegetable peeler, cut off the tops and bottoms and remove the seeds. Cut the peppers in half and children from the age of four can cut the peppers into strips.\n\nSTEP 7\nMake the sauce. A grown-up will need to help here. Heat the oil in a large saucepan. Add the vegetables and garlic and cook for 5 mins. Stir in the tomato pur�e, sugar and vinegar, leave for 1 min then tip in the tomatoes and simmer for 5 mins. Get the child to help blitz the sauce with a hand blender. Gently simmer the sauce while you cook the meatballs.\n\nSTEP 8\nCook the meatballs. Brown the meatballs in the olive oil on all sides then pop them into the sauce, working in batches if necessary. Simmer the meatballs in the sauce for 15 mins, gently stirring until they are cooked through. It�s ready to eat now or cool and freeze in suitable batches for up to 6 months. Serve with spaghetti, some basil and extra Parmesan, if you like.",
@@ -96,11 +96,11 @@ db.Dishes.insertMany(
             "name": "Easy beef hotpot",
             "cal": 417,
             "ingredients": ["onion", "carrot", "potatoes", "beef", "bean", "Worcestershire sauce", " parsley"],
-            "cook": "Ingredients\n2 onions\n300g carrots\n1kg potatoes\n450g lean minced beef\n2 beef stock cubes\n400g can baked beans\nsplash of Worcestershire sauce\nhandful of roughly chopped parsley (optional)\n\nMethod\nSTEP 1\nCut each onion into eight wedges. Roughly chop the carrots and cut the potatoes into large chunks. Put the kettle on.\n\nSTEP 2\nHeat a large non-stick pan, add the mince and fry quickly, stirring all the time, until evenly browned. Crumble in the stock cubes and mix well. Add the prepared vegetables, stir them around, then pour in 900ml/1� pints of hot water from the kettle. Bring to the boil.\n\nSTEP 3\nReduce the heat, cover and simmer for 25-30 minutes, until the veg are tender. Stir in the baked beans and a generous splash of Worcestershire sauce and heat through. Taste and add salt and pepper if necessary.\n\nSTEP 4\nScatter over the parsley, then ladle the hotpot into bowls. Put the Worcestershire sauce bottle on the table in case anyone fancies a bit more spice.\n\n",
+            "cook": "Ingredients\n2 onions\n300g carrots\n1kg potatoes\n450g lean minced beef\n2 beef stock cubes\n400g can baked beans\nsplash of Worcestershire sauce\nhandful of roughly chopped parsley (optional)\n\nMethod\nSTEP 1\nCut each onion into eight wedges. Roughly chop the carrots and cut the potatoes into large chunks. Put the kettle on.\n\nSTEP 2\nHeat a large non-stick pan, add the mince and fry quickly, stirring all the time, until evenly browned. Crumble in the stock cubes and mix well. Add the prepared vegetables, stir them around, then pour in 900ml/1� pints of hot water from the kettle. Bring to the boil.\n\nSTEP 3\nReduce the heat, cover and simmer for 25-30 minutes, until the veg are tender. Stir in the baked beans and a generous splash of Worcestershire sauce and heat through. Taste and add salt and pepper if necessary.\n\nSTEP 4\nScatter over the parsley, then ladle the hotpot into bowls. Put the Worcestershire sauce bottle on the table in case anyone fancies a bit more spice.\n",
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-52267_11-6aba81b.jpg"
         },
         {
-            "name": "Piri-piri chicken with smashed sweet potatoes & broccoli",
+            "name": "Piri-piri chicken with smashed sweet potatoes and broccoli",
             "cal": 662,
             "ingredients": ["sweet potatoes", "oil", "chicken", "onion", "piri-piri spice mix", "broccoli"],
             "cook": "Ingredients\n3 large sweet potatoes (about 900g), peeled and cut into large chunks\noil , for drizzling\n6-8 chicken thighs, skin left on\n2 red onions , cut into wedges\n25g sachet piri-piri spice mix (or a mild version, if you like)\n300g long-stem broccoli\n\nMethod\nSTEP 1\nHeat the oven to 180C/160C fan/gas 4. Toss the sweet potatoes with a generous drizzle of oil and some seasoning, and tip into a very large roasting tin. Push the potatoes to one end of the tin, then, in the other end, toss the chicken with the onions, spice mix, a drizzle of oil and some seasoning. Roast for 40 mins, stirring everything halfway through. Add the broccoli to the tin, drizzle with a little oil and season, then roast for 10-15 mins more.\n\nSTEP 2\nRemove the chicken, onions and broccoli from the tin. Roughly mash the potatoes using a fork, making sure you incorporate all the chicken juices and spices from the pan. Spread the mash over the base of the tin, then top with the broccoli, chicken and onions and serve from the tin in the middle of the table.",
@@ -114,14 +114,14 @@ db.Dishes.insertMany(
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-901483_10-af0bd6b.jpg"
         },
         {
-            "name": "Frying pan pizza with aubergine, ricotta & mint",
+            "name": "Frying pan pizza with aubergine, ricotta and mint",
             "cal": 721,
             "ingredients": ["flour", "yeast", "sugar", "oil", "garlic", "passata", "aubergine", "ricotta", " mint "],
             "cook": "Ingredients\nFor the dough\n200g strong white bread flour , plus a little for dusting\n� tsp fast-action dried yeast\n� tsp golden caster sugar\na little oil , for greasing\nFor the toppings\n4 tbsp olive oil , plus a little extra\n1 garlic clove , thinly sliced\n200g passata\npinch of golden caster sugar (optional)\n1 small aubergine , sliced into discs\n100g ricotta\nsmall handful mint , roughly chopped\nextra virgin olive oil , for drizzling\n\nMethod\nSTEP 1\nWeigh the ingredients for the dough into a large bowl and add 1/2 tsp salt and 125ml warm water. Mix to form a soft dough, then tip onto your work surface and knead for 5 mins or until the dough feels stretchy. Clean and grease the bowl and return the dough. Cover with cling film and leave somewhere warm to rise for 1 hr, or until the dough has doubled in size.\n\nSTEP 2\nMeanwhile, make the sauce. Heat 1 tbsp olive oil in a pan and add the garlic. Sizzle gently for 30 secs, making sure the garlic doesn�t brown, then add the passata. Season well and bubble for 8-10 mins until you have a rich sauce � add a pinch of sugar if it tastes a little too tart. Set aside.\n\nSTEP 3\nWhen the dough has risen, knock out the air and roll it into a pizza base the same size as a large frying pan. Oil the surface of the dough, cover with cling film , then leave on the work surface for 15 mins to puff up a little. Meanwhile, heat 2 tbsp oil in the frying pan and add the aubergines in a single layer (you may have to cook in batches). Season well and cook for 4-5 mins on each side until really tender and golden. Transfer to a dish and cover with foil to keep warm.\n\nSTEP 4\nHeat the remaining 1 tbsp of oil in the pan and carefully lift the dough into it. You may have to reshape it a little to fit. Cook over a low-medium heat until the underside is golden brown and the edges of the dough are starting to look dry and set � this should take about 6 mins, but it�s best to go by eye. Flip over, drizzle a little more oil around the edge of the pan so it trickles underneath the pizza base, and cook for another 5-6 mins until golden and cooked through. Reheat the sauce if you need to and spread it over the base. Top with the warm aubergines and dot with spoonfuls of ricotta. Scatter with mint and drizzle with a little extra virgin olive oil just before serving.",
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/frying-pan-pizza-b691022.jpg"
         },
         {
-            "name": "Easy huevos rancheros\n",
+            "name": "Easy huevos rancheros",
             "cal": 682,
             "ingredients": ["oil", "tortilla wrap", "egg", "bean", "lime", "avocado", "feta", "hot chilli sauce"],
             "cook": "Ingredients\n1 tbsp vegetable oil or sunflower oil\n1 corn tortilla wrap\n1 egg\n200g can black beans, drained\njuice � lime\n� ripe avocado, peeled and sliced\n50g feta, crumbled\nhot chilli sauce (we like sriracha)\n\nMethod\nSTEP 1\nHeat the oil in a frying pan over a high heat. Add the tortilla and fry for 1-2 mins on each side until crisping at the edges. Transfer to a plate.\n\nSTEP 2\nCrack the egg into the pan and cook to your liking. Meanwhile, tip the beans into a bowl, season and add a squeeze of lime, then lightly mash with a fork.\n\nSTEP 3\nSpread the beans over the tortilla, top with the egg, avocado, feta and chilli sauce. Squeeze over a little more lime juice just before eating.",
@@ -135,14 +135,14 @@ db.Dishes.insertMany(
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/veggie-chilli-4a57c04.jpg"
         },
         {
-            "name": "Easy rocky road\n",
+            "name": "Easy rocky road",
             "cal": 320,
             "ingredients": ["biscuits", "butter", "chocolate", "syrup", "marshmallows", "sugar", "fruit", "nuts", "popcorn", "honeycomb"],
             "cook": "Ingredients\n200g digestive biscuits (Rich Tea can also be used)\n135g butter or margarine\n200g dark chocolate (70% cocoa works best)\n2-3 tbsp golden syrup\n100g mini marshmallows (chopped regular marshmallows work too)\nicing sugar, to dust\nOptional (up to 100g)\nraisins, dried cranberries or any dried fruit\nnuts\npopcorn\nhoneycomb, broken into pieces\n\nMethod\nSTEP 1\nGrease and line an 18cm square brownie tin with baking paper.\n\nSTEP 2\nPlace 200g digestive biscuits in a freezer bag and bash with a rolling pin or just the side of your fist until they're broken into a mixture of everything between dust and 50p-sized lumps. Set aside.\n\nSTEP 3\nIn a large saucepan melt 135g butter or margarine, 200g dark chocolate and 2-3 tbsp golden syrup over a gentle heat stirring constantly until there are no or almost no more lumps of chocolate visible, then remove from the heat. Leave to cool.\n\nSTEP 4\nTake the biscuits, 100g mini marshmallows and up to 100g of additional ingredients (dried fruit, nuts, popcorn, honeycomb), if you like, and stir into the chocolate mixture until everything is completely covered.\n\nSTEP 5\nTip the mixture into the lined baking tin, and spread it out to the corners. Chill for at least 2 hrs then dust with icing sugar and cut into 12 fingers.",
             "link_img": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/easy-rocky-road-13bd3fb.jpg"
         },
         {
-            "name": "Easy chicken tagine\n",
+            "name": "Easy chicken tagine",
             "cal": 304,
             "ingredients": ["oil", "chicken", "onion", "ginger", "saffron", "honey", "carrot", "parsley", "lemon"],
             "cook": "Ingredients\n2 tbsp olive oil\n8 skinless boneless chicken thighs, halved if large\n1 onion, chopped\n2 tsp grated fresh root ginger\npinch saffron or tumeric\n1 tbsp honey\n400g carrot, cut into sticks\nsmall bunch parsley, roughly chopped\nlemon wedges, to serve\n\nMethod\nSTEP 1\nHeat the oil in a large, wide pan with a lid, add the chicken, then fry quickly until lightly coloured. Add the onion and ginger, then fry for a further 2 mins.\n\nSTEP 2\nAdd 150ml water, the saffron, honey and carrots, season, then stir well. Bring to the boil, cover tightly, then simmer for 30 mins until the chicken is tender. Uncover and increase the heat for about 5 mins to reduce the sauce a little. Sprinkle with parsley and serve with lemon wedges for squeezing over.",
@@ -156,31 +156,31 @@ db.Ingredients.insertMany(
     [
         {
             "id": 1,
-            "name": "Chicken Egg",
+            "name": "chicken egg",
             "cal": 155,
             "link_img": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Chicken_egg_2009-06-04.jpg"
         },
         {
             "id": 2,
-            "name": "Duck Egg",
+            "name": "duck egg",
             "cal": 185,
             "link_img": "https://5.imimg.com/data5/HO/MU/IV/SELLER-13871848/duck-eggs-500x500.jpg"
         },
         {
             "id": 3,
-            "name": "Beef",
+            "name": "peef",
             "cal": 250.5,
             "link_img": "https://hanoismallgoods.com/wp-content/uploads/2021/05/beef-cheek-2.jpg"
         },
         {
             "id": 4,
-            "name": "Pork",
+            "name": "pork",
             "cal": 242.1,
             "link_img": "https://i0.wp.com/hanoismallgoods.com/wp-content/uploads/2021/05/pork-chops-loin.jpg"
         },
         {
             "id": 5,
-            "name": "Oil",
+            "name": "oil",
             "cal": 884.1,
             "link_img": "https://cdn-prod.medicalnewstoday.com/content/images/articles/324/324844/cooking-oil-being-poured-into-a-bowl.jpg"
         },

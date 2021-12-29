@@ -3,6 +3,8 @@ from pymongo import MongoClient
 from flask_cors import CORS, cross_origin
 from flask_restful import Api
 
+import re
+
 from urllib.parse import unquote
 
 app = Flask(__name__)
@@ -19,14 +21,6 @@ def get_db():
 @app.route('/')
 def index():
     return "Back-end OK! <a href=\"http://localhost\">Go to Front-end</a>"
-
-# Begin DB Recipes #################################################################
-@cross_origin()
-@app.route('/recipe/id/<id>')
-def get_recipe_by_id(id):
-    return str(id)
-
-# End DB Recipes
 
 # Begin DB Dishes #################################################################
 @cross_origin()
@@ -63,7 +57,8 @@ def get_dish_by_name(name):
 @app.route('/dish/name/like/<name>', methods=['GET', 'POST'])
 def get_dish_by_name_like(name):
     db = get_db()
-    _dish = db['Dishes'].find({"name": f"/.*{name}.*/"})
+    rgx = re.compile(f'.*{name}.*', re.IGNORECASE)
+    _dish = db['Dishes'].find({"name": rgx})
     this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'],  "recipe": dish['cook'],"image": dish['link_img']} for dish in _dish]
     if not this_dish:
         return jsonify({"message": "Not found!"}), 404
@@ -74,30 +69,39 @@ def get_dish_by_name_like(name):
 # Begin DB Ingredients #################################################################
 @cross_origin()
 @app.route('/ingredients')
+@app.route('/ingredients/')
 def get_all_ingredients():
-    return "all_ingredients"
+    db = get_db()
+    _ingredients = db['Ingredients'].find()
+    ingredients = [{'id': i['id'], 'name': i['name'], 'calories': i['cal'], 'image': i['link_img']} for i in _ingredients]
+    if not ingredients:
+        return jsonify({"message": "Not found!"}), 404
+    return jsonify(ingredients)
 
 @cross_origin()
 @app.route('/ingredient/id/<id>')
 def get_ingredient_by_id(id):
-    return str(id)
+    db = get_db()
+    _ingredient = db['Ingredients'].find({"id": int(id)})
+    ingredient = [{'id': i['id'], 'name': i['name'], 'calories': i['cal'], 'image': i['link_img']} for i in _ingredient]
+    if not ingredient:
+        return jsonify({"message": "Not found!"}), 404
+    return jsonify(ingredient)
+
+
 
 @cross_origin()
 @app.route('/ingredient/name/<name>')
 def get_ingredient_by_name(name):
-    return str(name)
+    db = get_db()
+    rgx = re.compile(f'.*{name}.*', re.IGNORECASE)
+    _ingredient = db['Ingredients'].find({"name": rgx})
+    ingredient = [{'id': i['id'], 'name': i['name'], 'calories': i['cal'], 'image': i['link_img']} for i in _ingredient]
+    if not ingredient:
+        return jsonify({"message": "Not found!"}), 404
+    return jsonify(ingredient)
 
 # End DB Ingredients
-
-
-# Begin DB Photos #################################################################
-@cross_origin()
-@app.route('/photo/<id>')
-def get_photo_by_id(id):
-    return str(id)
-
-# End DB Photos
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

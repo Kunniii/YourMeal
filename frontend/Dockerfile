@@ -1,5 +1,4 @@
 FROM python:3.9
-FROM python:3.9
 WORKDIR /app
 ENV FLASK_APP=main.py
 ENV FLASK_RUN_HOST=0.0.0.0
