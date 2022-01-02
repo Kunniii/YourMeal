@@ -1,10 +1,9 @@
 version: '3'
 services:
 
-  flask-client:
-    container_name: flask-client
-    image: python:3.9
-    restart: always
+  vue-client:
+    container_name: vue-client
+    image: node:16
     build:
       context: ./frontend/
       dockerfile: Dockerfile
@@ -13,7 +12,7 @@ services:
     ports:
       - published: 80
         target: 8080
-    command: python3 main.py
+    command: npm run serve
     depends_on:
       - flask-api
 
