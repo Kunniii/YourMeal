@@ -12,7 +12,7 @@ services:
     ports:
       - published: 80
         target: 8080
-    command: npm run serve
+    command: bash -c "npm install && npm run serve"
     depends_on:
       - flask-api
 
