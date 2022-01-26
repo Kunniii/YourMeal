@@ -6,6 +6,8 @@
       <router-link to="/about">About</router-link>
       |
       <router-link to="/what2cook">What to cook ?</router-link>
+      |
+      <router-link to="/random">Random Food!!</router-link>
     </div>
     <router-view />
   </div>

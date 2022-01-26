@@ -20,11 +20,10 @@ def get_db():
 # Simple route to make sure app is working
 @app.route('/')
 def index():
-    return "Back-end OK! <a href=\"http://localhost\">Go to Front-end</a>"
+    return "APIs OK!"
 
 # Begin DB Dishes #################################################################
 @cross_origin()
-@app.route('/dishes', methods=['GET'])
 @app.route('/dishes/', methods=['GET'])
 def get_all_dishes():
     db = get_db()
@@ -32,7 +31,7 @@ def get_all_dishes():
     dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'],  "recipe": dish['cook'],"image": dish['link_img']} for dish in _dishes]
     if not dishes:
         return jsonify({"message": "Not found!"}), 404
-    return jsonify(dishes)
+    return jsonify(dishes), 200
 
 @cross_origin()
 @app.route('/dish/id/<id>', methods=['GET', 'POST'])
@@ -51,7 +50,7 @@ def get_dish_by_name(name):
     this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'],  "recipe": dish['cook'],"image": dish['link_img']} for dish in _dish]
     if not this_dish:
         return jsonify({"message": "Not found!"}), 404
-    return jsonify(this_dish)
+    return jsonify(this_dish), 200
 
 @cross_origin()
 @app.route('/dish/name/like/<name>', methods=['GET', 'POST'])
@@ -62,13 +61,12 @@ def get_dish_by_name_like(name):
     this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'],  "recipe": dish['cook'],"image": dish['link_img']} for dish in _dish]
     if not this_dish:
         return jsonify({"message": "Not found!"}), 404
-    return jsonify(this_dish)
+    return jsonify(this_dish), 200
 
 # End DB Dishes
 
 # Begin DB Ingredients #################################################################
 @cross_origin()
-@app.route('/ingredients')
 @app.route('/ingredients/')
 def get_all_ingredients():
     db = get_db()
@@ -76,7 +74,7 @@ def get_all_ingredients():
     ingredients = [{'id': i['id'], 'name': i['name'], 'calories': i['cal'], 'image': i['link_img']} for i in _ingredients]
     if not ingredients:
         return jsonify({"message": "Not found!"}), 404
-    return jsonify(ingredients)
+    return jsonify(ingredients), 200
 
 @cross_origin()
 @app.route('/ingredient/id/<id>')
@@ -86,7 +84,7 @@ def get_ingredient_by_id(id):
     ingredient = [{'id': i['id'], 'name': i['name'], 'calories': i['cal'], 'image': i['link_img']} for i in _ingredient]
     if not ingredient:
         return jsonify({"message": "Not found!"}), 404
-    return jsonify(ingredient)
+    return jsonify(ingredient), 200
 
 
 
@@ -99,7 +97,7 @@ def get_ingredient_by_name(name):
     ingredient = [{'id': i['id'], 'name': i['name'], 'calories': i['cal'], 'image': i['link_img']} for i in _ingredient]
     if not ingredient:
         return jsonify({"message": "Not found!"}), 404
-    return jsonify(ingredient)
+    return jsonify(ingredient), 200
 
 # End DB Ingredients
 

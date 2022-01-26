@@ -18,6 +18,11 @@ const routes = [
     path: '/what2cook',
     name: 'What to Cook ?',
     component: () => import('@/views/What2Cook.vue')
+  },
+  {
+    path: '/random',
+    name: 'Random Food',
+    component: () => import('@/views/RandomFood.vue')
   }
 ]
 

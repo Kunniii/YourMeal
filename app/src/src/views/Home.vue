@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>What to Cook ?</h1>
+    <h1>Home</h1>
   </div>
 </template>
 
@@ -9,7 +9,3 @@ export default {
 
 }
 </script>
-
-<style>
-
-</style>

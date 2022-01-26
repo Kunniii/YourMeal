@@ -5,10 +5,10 @@ services:
     container_name: vue-client
     image: node:16
     build:
-      context: ./frontend/
+      context: ./app/
       dockerfile: Dockerfile
     volumes:
-      - ./frontend/src/:/app/
+      - ./app/src/:/app/
     ports:
       - published: 80
         target: 8080
@@ -21,10 +21,10 @@ services:
     image: python:3.9
     restart: always
     build:
-      context: ./backend/
+      context: ./api/
       dockerfile: Dockerfile
     volumes:
-      - ./backend/src/:/app/
+      - ./api/src/:/app/
     ports:
       - published: 5000
         target: 5000
