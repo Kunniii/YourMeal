@@ -7,7 +7,6 @@
     <div>
       <img class="dish-image" :src="dish.image" alt="" />
     </div>
-
     <div class="dish-recipe">
       {{ dish.recipe }}
     </div>
@@ -16,10 +15,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-    };
-  },
   props: ["dish"],
 };
 </script>

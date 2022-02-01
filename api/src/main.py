@@ -22,6 +22,15 @@ def get_db():
 def index():
     return "APIs OK!"
 
+@cross_origin()
+@app.route('/random/')
+def get_random_dish():
+    from random import randrange
+    db = get_db()
+    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'],  "recipe": dish['cook'],"image": dish['link_img']} for dish in db['Dishes'].find()]
+    count = len(list(dishes))
+    return jsonify(dishes[randrange(count)])
+
 # Begin DB Dishes #################################################################
 @cross_origin()
 @app.route('/dishes/', methods=['GET'])
