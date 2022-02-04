@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Random Food</h1>
-    <DishCard :dish=dish />
+    <DishCard v-show="isFetched" :dish="dish" />
     <button @click="getRandomDish">Get your random dish!</button>
   </div>
 </template>
@@ -12,20 +12,31 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      dish: {}
-    }
+      dish: {},
+      isFetched: false,
+    };
   },
-  mounted: function () {
-  },
+  mounted: function () {},
 
   methods: {
     getRandomDish: function () {
-      axios.get("http://localhost:5000/random/")
-      .then((response) => (this.dish=response.data))
-      .catch((error) => (this.dish={name:"Please try again", recipe: "There was an error getting the dishes! Please try again!"}))
-    }
+      axios
+        .get("http://localhost:5000/random/")
+        .then((response) => {
+          this.dish = response.data;
+          this.isFetched = true;
+        })
+        .catch(
+          (error) =>
+            (this.dish = {
+              name: "Please try again",
+              recipe:
+                "There was an error getting the dishes! Please try again!",
+            })
+        );
+    },
   },
-  
+
   components: {
     DishCard,
   },
