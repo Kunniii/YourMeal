@@ -27,7 +27,7 @@ def index():
 def get_random_dish():
     from random import randrange
     db = get_db()
-    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'],  "recipe": dish['cook'],"image": dish['link_img']} for dish in db['Dishes'].find()]
+    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in db['Dishes'].find()]
     count = len(list(dishes))
     return jsonify(dishes[randrange(count)])
 
@@ -37,7 +37,7 @@ def get_random_dish():
 def get_all_dishes():
     db = get_db()
     _dishes = db['Dishes'].find()
-    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'],  "recipe": dish['cook'],"image": dish['link_img']} for dish in _dishes]
+    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dishes]
     if not dishes:
         return jsonify({"message": "Not found!"}), 404
     return jsonify(dishes), 200
@@ -56,7 +56,7 @@ def get_dish_by_name(name):
     # print(name)
     db = get_db()
     _dish = db['Dishes'].find({"name": name})
-    this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'],  "recipe": dish['cook'],"image": dish['link_img']} for dish in _dish]
+    this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dish]
     if not this_dish:
         return jsonify({"message": "Not found!"}), 404
     return jsonify(this_dish), 200
@@ -67,7 +67,7 @@ def get_dish_by_name_like(name):
     db = get_db()
     rgx = re.compile(f'.*{name}.*', re.IGNORECASE)
     _dish = db['Dishes'].find({"name": rgx})
-    this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'],  "recipe": dish['cook'],"image": dish['link_img']} for dish in _dish]
+    this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dish]
     if not this_dish:
         return jsonify({"message": "Not found!"}), 404
     return jsonify(this_dish), 200

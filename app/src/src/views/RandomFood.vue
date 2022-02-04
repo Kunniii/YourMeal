@@ -32,6 +32,11 @@ export default {
 };
 </script>
 
-<style>
-
+<style scoped>
+button {
+  padding: 15px;
+  border-radius: 5px;
+  color: black;
+  background: aqua;
+}
 </style>
