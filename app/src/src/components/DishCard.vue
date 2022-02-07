@@ -1,5 +1,6 @@
 <template>
   <div class="dish-card">
+
     <div class="dish-name">
       <h2>{{ dish.name }}</h2>
     </div>
@@ -7,6 +8,7 @@
     <div>
       <img class="dish-image" :src="dish.image" alt="" />
     </div>
+
     <h3>Prepare Steps</h3>
     <div class="dish-recipe">
       <div class="prepare">
@@ -17,6 +19,7 @@
         </ul>
       </div>
     </div>
+
     <h3>Cooking Steps</h3>
     <div class="cook">
       <ol type="">
@@ -25,6 +28,7 @@
         </li>
       </ol>
     </div>
+    
   </div>
 </template>
 

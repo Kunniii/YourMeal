@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Random Food</h1>
-    <DishCard v-show="isFetched" :dish="dish" />
     <button @click="getRandomDish">Get your random dish!</button>
+    <DishCard v-show="isFetched" :dish="dish" />
   </div>
 </template>
 
@@ -44,10 +44,10 @@ export default {
 </script>
 
 <style scoped>
-button {
+/* button {
   padding: 15px;
   border-radius: 5px;
   color: black;
   background: aqua;
-}
+} */
 </style>

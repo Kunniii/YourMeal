@@ -39,17 +39,13 @@ def get_random_dish():
 @cross_origin()
 @app.route('/search', methods=['POST', 'GET'])
 def seach_in_array_and_return_dish_that_contain_ingredients():
+
     dishes_that_have_ingredients = []
 
     # get list off ingredients
     try:
-        # request_ingredients = request.json['ingredients']
-        # request_ingredients = request.form.getList('ingredients[]')
-        request_ingredients = request.args.get('ingredients')
-        request_ingredients = request_ingredients.replace(' ', '')
-        request_ingredients = request_ingredients.split(',')
-
-    except Exception as e:
+        request_ingredients = request.args.get('ingredients').replace(' ', '').split(',')
+    except:
         return jsonify({"message":"array name must be `ingredients` or some errors have orcured!"}), 400
 
     # get all dishes
