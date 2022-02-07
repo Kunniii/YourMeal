@@ -1,7 +1,15 @@
 <template>
   <div>
     <h1>What to Cook ?</h1>
-    <DishCard v-for="dish in dishes" :key="dish.id" :dish=dish />
+    <label for="input-search">Enter some ingredients seperated by a comma</label>
+    <br>
+    <input v-model="ingredients" id="input-search" type="text" placeholder="Enter some ingredients seperated by a comma">
+    <button @click="fetchDataOnInputChange">Search</button>
+    <div v-show="show_dishes">      
+      <DishCard v-for="dish in dishes" :key="dish.id" :dish=dish />
+    </div>
+
+  
   </div>
 </template>
 
@@ -12,14 +20,37 @@ export default {
   data: function () {
     return {
       dishes: [],
+      new_dishes: [],
+      show_dishes: false,
+      ingredients: ""
     };
   },
 
+  // watch: {
+  //   refreshDishCard() {
+  //     this.dishes = this.new_dishes;
+  //   }
+  // },
+
+  methods: {
+    fetchDataOnInputChange() {
+      axios.get('http://localhost:5000/search', {
+        headers: { "Content-Type" : "application/json;charset=utf-8" },
+        params: {"ingredients": this.ingredients}
+      })
+      .then((response) => {
+        console.log(response.data);
+        this.dishes = response.data;
+        this.show_dishes = true;
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+        this.show_dishes = false;
+      })
+    }
+  },
+
   mounted: function () {
-    axios
-      .get("http://localhost:5000/dishes/")
-      .then((response) => (this.dishes = response.data))
-      .catch((error) => console.log(error));
   },
 
   components: {

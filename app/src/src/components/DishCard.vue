@@ -11,7 +11,7 @@
     <div class="dish-recipe">
       <div class="prepare">
         <ul type="-">
-          <li v-for="step in dish.prepare_steps" :key="step">
+          <li v-for="(step, index) in dish.prepare_steps" :key="index">
             {{ step }}
           </li>
         </ul>
@@ -20,7 +20,7 @@
     <h3>Cooking Steps</h3>
     <div class="cook">
       <ol type="">
-        <li id="cook_step" v-for="step in dish.cook_steps" :key="step">
+        <li id="cook_step" v-for="(step, index) in dish.cook_steps" :key="index">
           {{ step }}
         </li>
       </ol>

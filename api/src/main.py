@@ -1,3 +1,4 @@
+from operator import itemgetter
 from flask import Flask, jsonify, request
 from pymongo import MongoClient
 from flask_cors import CORS, cross_origin
@@ -8,6 +9,9 @@ import re
 from urllib.parse import unquote
 
 app = Flask(__name__)
+# remove strict slashes in url
+app.url_map.strict_slashes = False
+
 api = Api(app)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -22,22 +26,58 @@ def get_db():
 def index():
     return "APIs OK!"
 
+# Begin DB Dishes #################################################################
 @cross_origin()
 @app.route('/random/')
 def get_random_dish():
     from random import randrange
     db = get_db()
-    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in db['Dishes'].find()]
+    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in db['Dishes'].find()]
     count = len(list(dishes))
     return jsonify(dishes[randrange(count)])
 
-# Begin DB Dishes #################################################################
+@cross_origin()
+@app.route('/search', methods=['POST', 'GET'])
+def seach_in_array_and_return_dish_that_contain_ingredients():
+    dishes_that_have_ingredients = []
+
+    # get list off ingredients
+    try:
+        # request_ingredients = request.json['ingredients']
+        # request_ingredients = request.form.getList('ingredients[]')
+        request_ingredients = request.args.get('ingredients')
+        request_ingredients = request_ingredients.replace(' ', '')
+        request_ingredients = request_ingredients.split(',')
+
+    except Exception as e:
+        return jsonify({"message":"array name must be `ingredients` or some errors have orcured!"}), 400
+
+    # get all dishes
+    db = get_db()
+    _dishes = db['Dishes'].find()
+    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dishes]
+    if not dishes:
+        return jsonify({"message": "Not found!"}), 404
+    
+    for dish in dishes:
+        ingredient_that_this_dish_has = 0
+        for dish_ingredient in dish['ingredients']:
+            if dish_ingredient in request_ingredients:
+                ingredient_that_this_dish_has += 1
+        if ingredient_that_this_dish_has > 0:
+            dish.update({'score':ingredient_that_this_dish_has})
+            dishes_that_have_ingredients.append(dish)
+    
+    list_of_dishes_sorted_by_score = sorted(dishes_that_have_ingredients, key=itemgetter('score'), reverse=True)
+    
+    return jsonify(list_of_dishes_sorted_by_score), 200
+
 @cross_origin()
 @app.route('/dishes/', methods=['GET'])
 def get_all_dishes():
     db = get_db()
     _dishes = db['Dishes'].find()
-    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dishes]
+    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dishes]
     if not dishes:
         return jsonify({"message": "Not found!"}), 404
     return jsonify(dishes), 200
@@ -56,7 +96,7 @@ def get_dish_by_name(name):
     # print(name)
     db = get_db()
     _dish = db['Dishes'].find({"name": name})
-    this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dish]
+    this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dish]
     if not this_dish:
         return jsonify({"message": "Not found!"}), 404
     return jsonify(this_dish), 200
@@ -67,7 +107,7 @@ def get_dish_by_name_like(name):
     db = get_db()
     rgx = re.compile(f'.*{name}.*', re.IGNORECASE)
     _dish = db['Dishes'].find({"name": rgx})
-    this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dish]
+    this_dish = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dish]
     if not this_dish:
         return jsonify({"message": "Not found!"}), 404
     return jsonify(this_dish), 200
@@ -94,8 +134,6 @@ def get_ingredient_by_id(id):
     if not ingredient:
         return jsonify({"message": "Not found!"}), 404
     return jsonify(ingredient), 200
-
-
 
 @cross_origin()
 @app.route('/ingredient/name/<name>')
