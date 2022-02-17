@@ -1,11 +1,12 @@
 <template>
   <div>
     <h1>What to Cook ?</h1>
-    <label for="input-search">Enter some ingredients seperated by a comma</label>
+    <label for="input-search">Enter some ingredients that you have, seperated by a comma</label>
     <br>
     <input v-model="ingredients" id="input-search" type="text" placeholder="Enter some ingredients seperated by a comma">
     <button @click="fetchDataOnInputChange">Search</button>
-    <div v-show="show_dishes">      
+    
+    <div v-show="show_dishes" class="dish-list">
       <DishCard v-for="dish in dishes" :key="dish.id" :dish=dish />
     </div>
 
@@ -26,15 +27,9 @@ export default {
     };
   },
 
-  // watch: {
-  //   refreshDishCard() {
-  //     this.dishes = this.new_dishes;
-  //   }
-  // },
-
   methods: {
     fetchDataOnInputChange() {
-      axios.get('http://localhost:5000/search', {
+      axios.get('http://bdd3-118-71-27-155.ngrok.io/search', {
         headers: { "Content-Type" : "application/json;charset=utf-8" },
         params: {"ingredients": this.ingredients}
       })
@@ -60,4 +55,14 @@ export default {
 </script>
 
 <style scoped>
+#input-search, #input-search:focus {
+  min-width: 30%;
+  padding: 5px;
+  margin: 5px;
+  outline: none;
+}
+
+button {
+  padding: 5px;
+}
 </style>

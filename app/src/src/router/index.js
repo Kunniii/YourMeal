@@ -3,26 +3,38 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+import Home from '@/views/Home.vue'
+import About from '@/views/About.vue'
+import What2Cook from '@/views/What2Cook.vue'
+import RandomFood from '@/views/RandomFood.vue'
+import ViewDetail from '@/views/ViewDetail.vue'
+
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/views/Home.vue')
+    component: Home
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import('@/views/About.vue')
+    component: About
   },
   {
     path: '/what2cook',
-    name: 'What to Cook ?',
-    component: () => import('@/views/What2Cook.vue')
+    name: 'What2Cook',
+    component: What2Cook
   },
   {
     path: '/random',
-    name: 'Random Food',
-    component: () => import('@/views/RandomFood.vue')
+    name: 'RandomFood',
+    component: RandomFood
+  },
+  {
+    path: '/detail/:id?',
+    name: 'DishDetail',
+    component: ViewDetail,
+    props: true
   }
 ]
 

@@ -1,6 +1,7 @@
 from operator import itemgetter
 from flask import Flask, jsonify, request
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 from flask_cors import CORS, cross_origin
 from flask_restful import Api
 
@@ -44,7 +45,7 @@ def seach_in_array_and_return_dish_that_contain_ingredients():
 
     # get list off ingredients
     try:
-        request_ingredients = request.args.get('ingredients').replace(' ', '').split(',')
+        request_ingredients = request.args.get('ingredients').replace(', ', ',').split(',')
     except:
         return jsonify({"message":"array name must be `ingredients` or some errors have orcured!"}), 400
 
@@ -63,6 +64,9 @@ def seach_in_array_and_return_dish_that_contain_ingredients():
         if ingredient_that_this_dish_has > 0:
             dish.update({'score':ingredient_that_this_dish_has})
             dishes_that_have_ingredients.append(dish)
+
+    # take only 5 most highest score
+    dishes_that_have_ingredients = dishes_that_have_ingredients[:5]
     
     list_of_dishes_sorted_by_score = sorted(dishes_that_have_ingredients, key=itemgetter('score'), reverse=True)
     
@@ -81,7 +85,12 @@ def get_all_dishes():
 @cross_origin()
 @app.route('/dish/id/<id>', methods=['GET', 'POST'])
 def get_dish_by_id(id):
-    return str(id)
+    db = get_db()
+    dish = db['Dishes'].find_one(ObjectId(str(id)))
+    dish = {"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']}
+    if not dish:
+        return jsonify({"message": "Not found!"}), 404
+    return jsonify(dish), 200
 
 @cross_origin()
 @app.route('/dish/name/<name>', methods=['GET', 'POST'])

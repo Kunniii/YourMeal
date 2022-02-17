@@ -1,35 +1,15 @@
 <template>
-  <div class="dish-card">
+  <router-link :to="'/detail/' + dish.id">
+    <div class="dish-card">
+      <div class="dish-name">
+        <h2>{{ dish.name }}</h2>
+      </div>
 
-    <div class="dish-name">
-      <h2>{{ dish.name }}</h2>
-    </div>
-
-    <div>
-      <img class="dish-image" :src="dish.image" alt="" />
-    </div>
-
-    <h3>Prepare Steps</h3>
-    <div class="dish-recipe">
-      <div class="prepare">
-        <ul type="-">
-          <li v-for="(step, index) in dish.prepare_steps" :key="index">
-            {{ step }}
-          </li>
-        </ul>
+      <div>
+        <img class="dish-image" :src="dish.image" alt="" />
       </div>
     </div>
-
-    <h3>Cooking Steps</h3>
-    <div class="cook">
-      <ol type="">
-        <li id="cook_step" v-for="(step, index) in dish.cook_steps" :key="index">
-          {{ step }}
-        </li>
-      </ol>
-    </div>
-    
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -40,7 +20,11 @@ export default {
 
 <style scoped>
 .dish-card {
-  max-width: 75vw;
+  padding: 1px 0px 15px 15px;
+  margin: 15px;
+  border-radius: 12px;
+  background-color: rgb(231, 206, 255);
+  max-width: 317px;
 }
 
 .dish-image {
@@ -50,5 +34,10 @@ export default {
 
 ul {
   list-style-type: "- ";
+}
+a,
+a:visited {
+  text-decoration: none;
+  color: black;
 }
 </style>

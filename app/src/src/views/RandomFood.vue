@@ -21,7 +21,7 @@ export default {
   methods: {
     getRandomDish: function () {
       axios
-        .get("http://localhost:5000/random/")
+        .get("http://bdd3-118-71-27-155.ngrok.io/random/")
         .then((response) => {
           this.dish = response.data;
           this.isFetched = true;
