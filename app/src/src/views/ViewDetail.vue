@@ -14,7 +14,7 @@ export default {
   },
   props: ["id"],
   mounted: function () {
-      axios.get('http://bdd3-118-71-27-155.ngrok.io/dish/id/'+this.id)
+      axios.get('http://localhost:5000/dish/id/'+this.id)
       .then((response) => {
         this.dish = response.data;
         this.show_dish = true;

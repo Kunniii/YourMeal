@@ -29,7 +29,7 @@ export default {
 
   methods: {
     fetchDataOnInputChange() {
-      axios.get('http://bdd3-118-71-27-155.ngrok.io/search', {
+      axios.get('http://localhost:5000/search', {
         headers: { "Content-Type" : "application/json;charset=utf-8" },
         params: {"ingredients": this.ingredients}
       })

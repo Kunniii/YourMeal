@@ -1,4 +1,5 @@
 from operator import itemgetter
+import this
 from flask import Flask, jsonify, request
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -46,20 +47,22 @@ def seach_in_array_and_return_dish_that_contain_ingredients():
     # get list off ingredients
     try:
         request_ingredients = request.args.get('ingredients').replace(', ', ',').split(',')
+        request_ingredients = (" ".join(request_ingredients)).split()
     except:
         return jsonify({"message":"array name must be `ingredients` or some errors have orcured!"}), 400
 
     # get all dishes
     db = get_db()
     _dishes = db['Dishes'].find()
-    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dishes]
-    if not dishes:
+    dishes_in_db = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dishes]
+    if not dishes_in_db:
         return jsonify({"message": "Not found!"}), 404
     
-    for dish in dishes:
+    for dish in dishes_in_db:
         ingredient_that_this_dish_has = 0
-        for dish_ingredient in dish['ingredients']:
-            if dish_ingredient in request_ingredients:
+        this_dish_ingredients = set((" ".join(dish['ingredients'])).split())
+        for the_ingredient in this_dish_ingredients:
+            if the_ingredient in request_ingredients:
                 ingredient_that_this_dish_has += 1
         if ingredient_that_this_dish_has > 0:
             dish.update({'score':ingredient_that_this_dish_has})
