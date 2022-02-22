@@ -34,6 +34,10 @@ html {
     color: #fff;
 }
 
+.search-wrapper>input {
+    font-size: 25px;
+}
+
 form {
     text-align: center;
 }
@@ -49,6 +53,7 @@ form {
     width: 75vw;
     margin: auto;
     margin-top: 50px;
+    display: inline-flex;
 }
 
 .search-box {

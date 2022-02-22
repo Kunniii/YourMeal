@@ -70,7 +70,7 @@ def seach_in_array_and_return_dish_that_contain_ingredients():
             dishes_that_have_ingredients.append(dish)
 
     # take only 5 most highest score
-    dishes_that_have_ingredients = dishes_that_have_ingredients[:3]
+    dishes_that_have_ingredients = dishes_that_have_ingredients[:4]
     
     list_of_dishes_sorted_by_score = sorted(dishes_that_have_ingredients, key=itemgetter('score'), reverse=True)
 

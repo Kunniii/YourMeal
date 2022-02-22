@@ -17,10 +17,8 @@
             Search
           </button>
         </div>
-      </div>
-      <br />
-      <div v-show="show_dishes" class="dish-list">
-        <SearchResult :dishes="dishes" />
+      <SearchResult v-show="show_dishes" :dishes="dishes" />
+      <NotFoundCard v-show="no_dishes"/>
       </div>
     </div>
     <footer>
@@ -65,6 +63,7 @@
 
 <script>
 import SearchResult from "@/components/SearchResult.vue";
+import NotFoundCard from "@/components/NotFoundCard.vue";
 import axios from "axios";
 export default {
   data: function () {
@@ -72,6 +71,7 @@ export default {
       dishes: [],
       new_dishes: [],
       show_dishes: false,
+      no_dishes: false,
       ingredients: "",
     };
   },
@@ -84,13 +84,19 @@ export default {
           params: { ingredients: this.ingredients },
         })
         .then((response) => {
-          console.log(response.data);
           this.dishes = response.data;
-          this.show_dishes = true;
+          if (this.dishes.length > 0) {
+            this.show_dishes = true;
+            this.no_dishes = false;
+          } else {
+            this.no_dishes = true;
+            this.show_dishes = false;
+          }
         })
         .catch((error) => {
-          console.log(error.response.data);
+          console.log(error);
           this.show_dishes = false;
+          this.no_dishes = true;
         });
     },
   },
@@ -99,13 +105,14 @@ export default {
 
   components: {
     SearchResult,
+    NotFoundCard
   },
   async created() {
     window.addEventListener("keydown", (e) => {
       if (e.key == "Enter") {
         this.fetchDataOnInputChange();
       }
-    })
+    });
   },
 };
 </script>
@@ -118,7 +125,7 @@ export default {
   background-color: rgba(0, 99, 53, 0.548);
 }
 .button-reset {
-  padding: 20px;
+  padding: 14px 10px;
   margin-left: 5px;
   text-align: center;
   border-radius: 10px;
@@ -126,10 +133,13 @@ export default {
   width: 10vw;
   background-color: orange;
   font-family: Quicksand;
+  font-size: 25px;
 }
 .button-reset:hover {
-  box-shadow: 0 0 5px 2px #000000;
+  box-shadow: 0 0 5px 2px #ffffff;
   transition: 300ms;
   font-weight: bold;
+  background-color: orange;
+  color: #fff;
 }
 </style>
