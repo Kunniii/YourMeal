@@ -100,6 +100,13 @@ export default {
   components: {
     SearchResult,
   },
+  async created() {
+    window.addEventListener("keydown", (e) => {
+      if (e.key == "Enter") {
+        this.fetchDataOnInputChange();
+      }
+    })
+  },
 };
 </script>
 
