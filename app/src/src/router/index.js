@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+import Index from '@/views/Index.vue'
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
 import What2Cook from '@/views/What2Cook.vue'
@@ -12,6 +13,11 @@ import ViewDetail from '@/views/ViewDetail.vue'
 const routes = [
   {
     path: '/',
+    name: 'Index',
+    component: Index
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
   },

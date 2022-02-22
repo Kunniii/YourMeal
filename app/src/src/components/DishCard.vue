@@ -1,15 +1,23 @@
 <template>
-  <router-link :to="'/detail/' + dish.id">
-    <div class="dish-card">
-      <div class="dish-name">
-        <h2>{{ dish.name }}</h2>
-      </div>
-
-      <div>
-        <img class="dish-image" :src="dish.image" alt="" />
-      </div>
+  <div class="dish-card">
+    <!-- img -->
+    <div class="image">
+      <img :src="dish.image" alt="" />
     </div>
-  </router-link>
+
+    <!-- content -->
+    <div class="item-content">
+      <h3>{{ dish.name }}</h3>
+      <!-- <div class="item-description">
+        <p>
+          {{ dish.ingredients.join(', ') }}
+        </p>
+      </div> -->
+    </div>
+
+    <!-- button -->
+    <router-link class="button"  :to="'/detail/' + dish.id"> View Detail </router-link>
+  </div>
 </template>
 
 <script>
@@ -19,25 +27,5 @@ export default {
 </script>
 
 <style scoped>
-.dish-card {
-  padding: 1px 0px 15px 15px;
-  margin: 15px;
-  border-radius: 12px;
-  background-color: rgb(231, 206, 255);
-  max-width: 317px;
-}
-
-.dish-image {
-  min-width: 300px;
-  max-width: 300px;
-}
-
-ul {
-  list-style-type: "- ";
-}
-a,
-a:visited {
-  text-decoration: none;
-  color: black;
-}
+@import "../assets/styles/dishcard.css";
 </style>

@@ -1,5 +1,4 @@
 from operator import itemgetter
-import this
 from flask import Flask, jsonify, request
 from pymongo import MongoClient
 from bson.objectid import ObjectId
@@ -29,6 +28,8 @@ def index():
     return "APIs OK!"
 
 # Begin DB Dishes #################################################################
+
+# to random, this can be modify using random.choice
 @cross_origin()
 @app.route('/random/')
 def get_random_dish():
@@ -69,21 +70,21 @@ def seach_in_array_and_return_dish_that_contain_ingredients():
             dishes_that_have_ingredients.append(dish)
 
     # take only 5 most highest score
-    dishes_that_have_ingredients = dishes_that_have_ingredients[:5]
+    dishes_that_have_ingredients = dishes_that_have_ingredients[:3]
     
     list_of_dishes_sorted_by_score = sorted(dishes_that_have_ingredients, key=itemgetter('score'), reverse=True)
-    
+
     return jsonify(list_of_dishes_sorted_by_score), 200
 
-@cross_origin()
-@app.route('/dishes/', methods=['GET'])
-def get_all_dishes():
-    db = get_db()
-    _dishes = db['Dishes'].find()
-    dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dishes]
-    if not dishes:
-        return jsonify({"message": "Not found!"}), 404
-    return jsonify(dishes), 200
+# @cross_origin()
+# @app.route('/dishes/', methods=['GET'])
+# def get_all_dishes():
+#     db = get_db()
+#     _dishes = db['Dishes'].find()
+#     dishes = [{"id": str(dish['_id']), "name": dish['name'], "calories": dish['cal'], "ingredients": dish['ingredients'], "prepare_steps": dish['prepare_steps'], "cook_steps": dish['cook_steps'], "image": dish['link_img']} for dish in _dishes]
+#     if not dishes:
+#         return jsonify({"message": "Not found!"}), 404
+#     return jsonify(dishes), 200
 
 @cross_origin()
 @app.route('/dish/id/<id>', methods=['GET', 'POST'])
@@ -123,15 +124,15 @@ def get_dish_by_name_like(name):
 # End DB Dishes
 
 # Begin DB Ingredients #################################################################
-@cross_origin()
-@app.route('/ingredients/')
-def get_all_ingredients():
-    db = get_db()
-    _ingredients = db['Ingredients'].find()
-    ingredients = [{'id': i['id'], 'name': i['name'], 'calories': i['cal'], 'image': i['link_img']} for i in _ingredients]
-    if not ingredients:
-        return jsonify({"message": "Not found!"}), 404
-    return jsonify(ingredients), 200
+# @cross_origin()
+# @app.route('/ingredients/')
+# def get_all_ingredients():
+#     db = get_db()
+#     _ingredients = db['Ingredients'].find()
+#     ingredients = [{'id': i['id'], 'name': i['name'], 'calories': i['cal'], 'image': i['link_img']} for i in _ingredients]
+#     if not ingredients:
+#         return jsonify({"message": "Not found!"}), 404
+#     return jsonify(ingredients), 200
 
 @cross_origin()
 @app.route('/ingredient/id/<id>')

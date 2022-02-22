@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Quicksand;
+    scroll-behavior: smooth;
+    background: url("../img/background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    max-width: 100vh;
+}
+
+.button-get-started {
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid #41a2c4;
+    padding: 1em 2em;
+    border-radius: 15px;
+    color: #fff;
+    transition: all 250ms ease;
+    font-weight: 700;
+    position: absolute;
+    left: 17vw;
+    top: 75vh;
+}
+
+.button-get-started:hover {
+    background: #41a2c4;
+    color: white;
+    letter-spacing: 1.5px;
+}
