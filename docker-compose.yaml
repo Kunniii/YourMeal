@@ -3,7 +3,6 @@ services:
 
   vue-client:
     container_name: vue-client
-    image: node:16
     build:
       context: ./app/
       dockerfile: Dockerfile
@@ -18,7 +17,6 @@ services:
 
   flask-api:
     container_name: flask-api
-    image: python:3.9
     restart: always
     build:
       context: ./api/
