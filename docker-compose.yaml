@@ -3,7 +3,6 @@ services:
 
   flask-client:
     container_name: flask-client
-    image: python:3.9
     restart: always
     build:
       context: ./frontend/
@@ -19,7 +18,6 @@ services:
 
   flask-api:
     container_name: flask-api
-    image: python:3.9
     restart: always
     build:
       context: ./backend/
