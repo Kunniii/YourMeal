@@ -1,17 +1,12 @@
 version: "3"
 services:
-  flask-client:
-    container_name: flask-client
-    restart: always
+  vue-client:
+    container_name: vue-client
     build:
-      context: ./frontend/
+      context: ./app/
       dockerfile: Dockerfile
-    volumes:
-      - ./frontend/src/:/app/
     ports:
-      - published: 80
-        target: 8080
-    command: python3 main.py
+      - 80:80
     depends_on:
       - flask-api
 
@@ -19,24 +14,16 @@ services:
     container_name: flask-api
     restart: always
     build:
-      context: ./backend/
+      context: ./api/
       dockerfile: Dockerfile
-    volumes:
-      - ./backend/src/:/app/
     ports:
-      - published: 5000
-        target: 5000
-    command: python3 main.py
+      - 5000:8000
     depends_on:
       - mongodb
-    links:
-      - "mongodb"
 
   mongodb:
     image: mongo
     hostname: mongodb
-    ports:
-      - 27017:27017
     volumes:
       - data:/data/
       - ./database/initdb.js:/docker-entrypoint-initdb.d/init-db.js:ro
