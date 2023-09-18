@@ -1,0 +1,55 @@
+
+.result {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 50% 50%;
+}
+
+.result .item-food {
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+    background: #FFFDDE;
+    box-shadow: 0 0 5px;
+    border-radius: 15px;
+}
+
+.result .item-food .item-content h3 {
+    font-size: 28px;
+    margin-bottom: 50px;
+    width: 500px;
+    /* text-align: justify; */
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+.result .item-food .item-content {
+    margin: 20px;
+}
+
+.result .item-food .image img {
+    max-width: 300px;
+    min-width: 300px;
+    margin: 10px;
+    border-radius: 15px;
+}
+/* CSS Button View More */
+
+.button {
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 9px 15px;
+    font-family: 'Quicksand';
+    display: inline-block;
+    border-radius: 15px;
+    margin-top: 10px;
+    background-color: #ffce45;
+    text-decoration: none;
+}
+
+.button:hover {
+    color: #fff;
+}

@@ -1,6 +1,5 @@
-version: '3'
+version: "3"
 services:
-
   flask-client:
     container_name: flask-client
     restart: always
