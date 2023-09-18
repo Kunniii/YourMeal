@@ -1,17 +1,12 @@
-version: '3'
+version: "3"
 services:
-
   vue-client:
     container_name: vue-client
     build:
       context: ./app/
       dockerfile: Dockerfile
-    volumes:
-      - ./app/src/:/app/
     ports:
-      - published: 80
-        target: 8080
-    command: bash -c "npm install && npm run serve"
+      - 80:80
     depends_on:
       - flask-api
 
@@ -21,12 +16,8 @@ services:
     build:
       context: ./api/
       dockerfile: Dockerfile
-    volumes:
-      - ./api/src/:/app/
     ports:
-      - published: 5000
-        target: 5000
-    command: python3 main.py
+      - 5000:8000
     depends_on:
       - mongodb
     links:
